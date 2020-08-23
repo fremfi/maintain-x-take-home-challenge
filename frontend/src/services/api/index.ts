@@ -55,12 +55,13 @@ const Api = {
 
     try {
       await Http.Request<IWorkOrderStatusUpdateResponse>(
-        "PATCH",
+        "POST",
         `/api/workorders/${id}/status`,
         undefined,
         { status }
       );
     } catch (error) {
+      console.log(error);
       errorResponse = {
         message:
           error.message ||

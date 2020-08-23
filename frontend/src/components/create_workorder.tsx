@@ -204,7 +204,6 @@ const CreateWorkOrder: FunctionComponent<any> = (props) => {
   };
 
   React.useEffect(() => {
-    console.log("has change");
     getUsers();
   }, [getUsers]);
 
