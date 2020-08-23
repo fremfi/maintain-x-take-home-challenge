@@ -12,6 +12,7 @@ import Chip from "@material-ui/core/Chip";
 import Api from "../services/api";
 import { IWorkOrder, IError } from "../services/api/api";
 import ClipLoader from "react-spinners/ClipLoader";
+import { RouteComponentProps } from "react-router-dom";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -30,8 +31,12 @@ const useStyles = makeStyles(() =>
     },
   })
 );
+interface MatchParams {
+  id: string;
+}
+interface IProps extends RouteComponentProps<MatchParams> {}
 
-const WorkOrders: FunctionComponent<any> = ({
+const WorkOrders: FunctionComponent<IProps> = ({
   match: {
     params: { id },
   },

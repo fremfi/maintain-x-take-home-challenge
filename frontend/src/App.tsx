@@ -7,6 +7,7 @@ import CreateWorkOrder from "./components/create_workorder";
 import Productivity from "./components/productivity";
 import AppBar from "./components/appbar";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import logo from "./logo.svg";
 
 const theme = createMuiTheme({
   palette: {
@@ -14,15 +15,19 @@ const theme = createMuiTheme({
   },
 });
 
-const App: FunctionComponent<any> = () => {
+const Home: FunctionComponent = () => {
+  return <img src={logo} className="app-logo" alt="logo" />;
+};
+
+const App: FunctionComponent = () => {
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <AppBar />
         <div className="app">
-          {/* <img src={logo} className="app-logo" alt="logo" /> */}
           <div className="app-body">
             <Switch>
+              <Route exact path="/" component={Home} />
               <Route exact path="/workorders" component={WorkOrders} />
               <Route exact path="/workorders/new" component={CreateWorkOrder} />
               <Route exact path="/workorders/:id" component={WorkOrder} />

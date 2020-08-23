@@ -86,7 +86,7 @@ function intersection(a: IUser[], b: IUser[]) {
   return a.filter((value) => b.findIndex((i) => i.id === value.id) !== -1);
 }
 
-const CreateWorkOrder: FunctionComponent<any> = (props) => {
+const CreateWorkOrder: FunctionComponent = () => {
   const classes = useStyles();
   const [checked, setChecked] = React.useState<IUser[]>([]);
   const [left, setLeft] = React.useState<IUser[]>([]);

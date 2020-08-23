@@ -3,10 +3,12 @@ import WorkOrderTable from "./workorder_table";
 import Typography from "@material-ui/core/Typography";
 import Api from "../services/api";
 import { IWorkOrder, IError } from "../services/api/api";
-import { withRouter } from "react-router-dom";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 
-const WorkOrders: FunctionComponent<any> = (props) => {
+interface IProps extends RouteComponentProps {}
+
+const WorkOrders: FunctionComponent<IProps> = (props) => {
   const [workOrders, setWorkOrders] = useState<IWorkOrder[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<IError>();

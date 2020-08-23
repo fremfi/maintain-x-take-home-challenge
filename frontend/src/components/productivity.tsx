@@ -30,7 +30,7 @@ const useStyles = makeStyles(() =>
   })
 );
 
-const Productivity: FunctionComponent<any> = () => {
+const Productivity: FunctionComponent = () => {
   const [users, setUsers] = useState<IUser[]>();
   const [isLoading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<IError>();
