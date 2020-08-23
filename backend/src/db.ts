@@ -6,15 +6,17 @@ const db = sqliteOpen({ filename: ":memory:", driver: sqlite3.Database });
 type Parameters<T> = T extends (...args: infer T) => any ? T : never;
 
 const sql = (...args: Parameters<Database["all"]>) =>
-  db.then(dbo => dbo.all(...args))
-    .catch(e => {
+  db
+    .then((dbo) => dbo.all(...args))
+    .catch((e) => {
       console.error("DB Error:", e);
-      return [];
+      throw e;
     });
 
 export const rawSql = (...args: Parameters<Database["run"]>) =>
-  db.then(dbo => dbo.run(...args))
-    .catch(e => console.error("DB Error:", e));
+  db
+    .then((dbo) => dbo.run(...args))
+    .catch((e) => console.error("DB Error:", e));
 
 (async () => {
   // Users
