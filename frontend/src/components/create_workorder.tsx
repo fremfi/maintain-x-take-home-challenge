@@ -237,7 +237,13 @@ const CreateWorkOrder: FunctionComponent = () => {
           helperText={validationError ? "Please enter a work order name" : ""}
           onChange={(e) => setWorkOrderName(e.target.value)}
         />
-
+        <Typography
+          variant="body1"
+          component="span"
+          style={{ marginTop: "10px" }}
+        >
+          Select Assignees
+        </Typography>
         <Grid
           container
           spacing={2}

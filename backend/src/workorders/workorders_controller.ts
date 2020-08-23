@@ -28,15 +28,7 @@ export class WorkOrdersController extends Controller {
   public async getWorkOrderByID(
     @Path() workOrderId: number
   ): Promise<IWorkOrder> {
-    const workOrder = await new WorkOrdersService().getWorkOrderByID(
-      workOrderId
-    );
-    if (Object.keys(workOrder).length === 0) {
-      throw new ResourceNotFoundError(
-        `The work order with id: ${workOrderId} does not exist`
-      );
-    }
-    return workOrder;
+    return await new WorkOrdersService().getWorkOrderByID(workOrderId);
   }
 
   @SuccessResponse("201", "Created")
@@ -45,11 +37,8 @@ export class WorkOrdersController extends Controller {
     @Body() requestBody: IWorkOrderCreationRequestPayload
   ): Promise<IWorkOrderCreationResponsePayload> {
     this.setStatus(201);
-    try {
-      await new WorkOrdersService().createWorkOrder(requestBody);
-    } catch (e) {
-      throw new DatabaseError();
-    }
+    await new WorkOrdersService().createWorkOrder(requestBody);
+
     return {
       success: "OK",
     };
@@ -62,14 +51,12 @@ export class WorkOrdersController extends Controller {
     @Path() workOrderId: number
   ): Promise<IWorkOrderUpdateResponsePayload> {
     this.setStatus(202);
-    try {
-      await new WorkOrdersService().updateWorkOrderStatus(
-        workOrderId,
-        requestBody
-      );
-    } catch (e) {
-      throw new DatabaseError();
-    }
+
+    await new WorkOrdersService().updateWorkOrderStatus(
+      workOrderId,
+      requestBody
+    );
+
     return {
       success: "OK",
     };

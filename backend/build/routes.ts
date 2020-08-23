@@ -34,11 +34,27 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "IWorkOrderCreationResponsePayload": {
+        "dataType": "refObject",
+        "properties": {
+            "success": { "dataType": "string", "required": true },
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "IWorkOrderCreationRequestPayload": {
         "dataType": "refObject",
         "properties": {
             "name": { "dataType": "string", "required": true },
             "assignees_id": { "dataType": "array", "array": { "dataType": "double" }, "required": true },
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "IWorkOrderUpdateResponsePayload": {
+        "dataType": "refObject",
+        "properties": {
+            "success": { "dataType": "string", "required": true },
         },
         "additionalProperties": false,
     },
