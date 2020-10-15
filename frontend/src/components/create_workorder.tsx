@@ -240,7 +240,7 @@ const CreateWorkOrder: FunctionComponent = () => {
         <Typography
           variant="body1"
           component="span"
-          style={{ marginTop: "10px" }}
+          style={{ display: "flex", marginTop: "10px" }}
         >
           Select Assignees
         </Typography>

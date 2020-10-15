@@ -4,7 +4,7 @@ declare namespace HttpModel {
   }
 
   export interface IRequestQueryPayload {
-    [key: string]: {};
+    [key: string]: string;
   }
 }
 
